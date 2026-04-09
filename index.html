@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Structure Motion Lab</title>
+    <link rel="stylesheet" href="./styles.css?v=20260403-20" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Interactive Visualizer</p>
+          <h1>See data structures move in real time.</h1>
+          <p class="lede">
+            Switch between structures and algorithms, run presets, step through
+            operations, and watch each value move into place frame by frame.
+          </p>
+          <div class="hero-meta" aria-label="Highlights">
+            <span>Playback timeline</span>
+            <span>Step-by-step lessons</span>
+            <span>Live state changes</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <p class="mini-label">What this project shows</p>
+          <ul class="hero-points">
+            <li>How insert, remove, and sort operations change structure</li>
+            <li>Where values travel during each step</li>
+            <li>How the same values look in different layouts</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <aside class="control-panel">
+          <p class="panel-note">
+            Pick a mode, load a preset, then watch the same data behave
+            differently across each visualization.
+          </p>
+
+          <div class="panel-block">
+            <label for="mode-select">Mode</label>
+            <select id="mode-select">
+              <option value="structure">Data structures</option>
+              <option value="algorithm">Algorithms</option>
+            </select>
+          </div>
+
+          <div class="panel-block">
+            <label for="visualization-select">Visualization</label>
+            <select id="visualization-select">
+              <option value="array">Array</option>
+              <option value="stack">Stack</option>
+              <option value="queue">Queue</option>
+              <option value="linked-list">Linked List</option>
+              <option value="tree">Binary Search Tree</option>
+              <option value="bubble-sort">Bubble Sort</option>
+              <option value="selection-sort">Selection Sort</option>
+              <option value="binary-search">Binary Search</option>
+            </select>
+          </div>
+
+          <div class="panel-block">
+            <label for="preset-select">Preset sequence</label>
+            <select id="preset-select"></select>
+            <div id="preset-gallery" class="preset-gallery" aria-label="Preset examples"></div>
+            <button id="play-recommended-btn" class="secondary">Play Recommended Demo</button>
+          </div>
+
+          <div class="panel-block">
+            <label for="value-input">Custom value</label>
+            <div class="inline-controls">
+              <input id="value-input" type="number" min="0" max="99" value="34" />
+              <button id="apply-value-btn">Apply</button>
+            </div>
+          </div>
+
+          <div class="panel-block">
+            <label for="speed-input">Animation speed</label>
+            <div class="slider-row">
+              <input id="speed-input" type="range" min="220" max="1500" step="20" value="650" />
+              <span id="speed-label">650ms</span>
+            </div>
+          </div>
+
+          <div class="panel-block action-grid">
+            <button id="play-btn">Play</button>
+            <button id="pause-btn" class="secondary">Pause</button>
+            <button id="step-back-btn" class="secondary">Step Back</button>
+            <button id="step-btn" class="secondary">Step Forward</button>
+            <button id="reset-btn" class="ghost">Reset</button>
+          </div>
+
+          <div class="panel-block explanation-block">
+            <p class="mini-label">Current lesson</p>
+            <h2 id="visualization-title">Array</h2>
+            <p id="structure-description" class="structure-description"></p>
+          </div>
+        </aside>
+
+        <section class="stage-panel">
+          <div class="stage-intro">
+            <p class="mini-label">Live canvas</p>
+            <p class="stage-note">
+              The canvas updates as the playback engine advances each step.
+            </p>
+          </div>
+
+          <div class="status-row">
+            <p id="status-text">Choose a structure and press Play Preset.</p>
+            <span id="op-counter" class="op-counter">0 operations</span>
+          </div>
+
+          <div class="viz-frame">
+            <svg id="viz-svg" viewBox="0 0 1080 620" role="img" aria-label="Data structure and algorithm visualization">
+              <defs>
+                <linearGradient id="barGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+                  <stop offset="0%" stop-color="#ffb36b" />
+                  <stop offset="100%" stop-color="#ef6c2f" />
+                </linearGradient>
+              </defs>
+              <g id="viz-backdrop"></g>
+              <g id="edges-layer"></g>
+              <g id="nodes-layer"></g>
+              <g id="labels-layer"></g>
+            </svg>
+          </div>
+
+          <div class="footer-grid">
+            <div class="legend">
+              <span><i class="swatch neutral"></i>Stored values</span>
+              <span><i class="swatch active"></i>Active values</span>
+              <span><i class="swatch accent"></i>New or moved values</span>
+            </div>
+
+            <div class="explanation-card">
+              <p class="mini-label">Explanation</p>
+              <p id="step-explanation" class="step-explanation">
+                The selected visualization will explain each step as it runs.
+              </p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="./src/app.js?v=20260403-20"></script>
+  </body>
+</html>
