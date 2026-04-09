@@ -33,7 +33,6 @@ jobs:
           mkdir -p dist
           cp index.html dist/index.html
           cp styles.css dist/styles.css
-          cp tree-demo.js dist/tree-demo.js
           cp -R src dist/src
 
       - name: Upload artifact
